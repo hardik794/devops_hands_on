@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Build Docker image') {
             steps {
-                sh 'docker build -t ${DOCKER_REPOSITORY}:${env.BRANCH_NAME}-${VERSION} .'
+                sh "docker build -t ${DOCKER_REPOSITORY}:${env.BRANCH_NAME}-${VERSION} ."
             }
         }
         stage('Push Docker image') {
@@ -21,8 +21,8 @@ pipeline {
                             )
                         ]
                     ) {
-                        sh 'docker login -u ${DOCKER_HUB_LOGIN_USR} -p ${DOCKER_HUB_LOGIN_PSW}'
-                        sh 'docker push ${DOCKER_REPOSITORY}:${env.BRANCH_NAME}-${VERSION}'
+                        sh "docker login -u ${DOCKER_HUB_LOGIN_USR} -p ${DOCKER_HUB_LOGIN_PSW}"
+                        sh "docker push ${DOCKER_REPOSITORY}:${env.BRANCH_NAME}-${VERSION}"
                 }
             }
         }
