@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         DOCKER_REPOSITORY = 'hardik794/devops-task'
-        VERSION = "0.0.1"
+        VERSION = "1.0.0"
     }
     stages {
         stage('Build Docker image') {
